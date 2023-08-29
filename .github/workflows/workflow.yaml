@@ -13,6 +13,3 @@ jobs:
 
       - name: Use compiler
         run: gcc src/main.c -o main.out
-          shell: bash
-          env:
-            CC: ${{ steps.install_cc.outputs.cc }}
