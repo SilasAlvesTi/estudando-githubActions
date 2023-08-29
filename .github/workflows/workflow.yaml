@@ -8,8 +8,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: install C compiler
-        uses: rlalik/setup-cc-compiler@master
+      - name: Setup Cpp
+        uses: aminya/setup-cpp@v1
 
       - name: Use compiler
         run: gcc src/main.c -o main.out
