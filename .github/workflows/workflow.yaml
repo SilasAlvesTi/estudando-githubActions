@@ -12,6 +12,7 @@ jobs:
         uses: rlalik/setup-cc-compiler@master
 
       - name: Use compiler
-        shell: bash
-        env:
-          CC: ${{ steps.install_cc.outputs.cc }}
+        run: gcc src/main.c -o main.out
+          shell: bash
+          env:
+            CC: ${{ steps.install_cc.outputs.cc }}
