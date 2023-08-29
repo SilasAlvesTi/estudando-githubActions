@@ -12,9 +12,7 @@ jobs:
         uses: aminya/setup-cpp@v1
 
       - name: Use compiler
-        run: gcc src/main.c -o main.out
+        run: gcc main.c -o main.out
       
       - name: Run executable
-        run: |
-          cd src
-          ./main.out
+        run: ./main.out
