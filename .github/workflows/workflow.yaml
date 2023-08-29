@@ -13,3 +13,8 @@ jobs:
 
       - name: Use compiler
         run: gcc src/main.c -o main.out
+      
+      - name: Run executable
+        run: |
+          cd src
+          ./main.out
