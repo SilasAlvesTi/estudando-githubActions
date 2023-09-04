@@ -23,6 +23,13 @@ jobs:
         run: gcc main.c -o main
     
       - name: Rodar testes com pytest
-        run: pytest test_code.py
+        run: pytest -q --tb=no --junitxml=results.xml test_code.py
+
+      - name: Adcionar JUnit XML
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results
+          path: results.xml
+
 
       
