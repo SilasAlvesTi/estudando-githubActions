@@ -7,12 +7,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup Cpp
+      - name: Clonar respositório
+        uses: actions/checkout@v3
+
+      - name: Configurar ambiente para testes
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3 python3-pip
+          pip3 install pytest
+
+      - name: Instalar compilador c
         uses: aminya/setup-cpp@v1
 
-      - name: Use compiler
-        run: gcc main.c -o main.out
+      - name: Compilar o arquivo
+        run: gcc main.c -o main
+    
+      - name: Rodar testes com pytest
+        run: pytest test_code.py
+
       
-      - name: Run executable
-        run: ./main.out
