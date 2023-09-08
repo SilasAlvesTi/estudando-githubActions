@@ -21,15 +21,15 @@ jobs:
 
       - name: Compilar o arquivo
         run: gcc main.c -o main
-    
+
       - name: Rodar testes com pytest
-        run: pytest -q --tb=no --junitxml=results.xml test_code.py
+        id: testes
+        run: |
+          pytest -q --tb=no --junitxml=results.xml test_code.py
+          pytest_result=$(pytest -q --tb=no --junitxml=results.xml test_code.py)
+          echo "::set-output name=pytest_result::$pytest_result"
 
-      - name: Adcionar JUnit XML
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-results
-          path: results.xml
-
-
-      
+      - name: Mostrar resultados dos testes
+        run: |
+          echo "Resultados dos testes:"
+          echo "${{ steps.testes.outputs.pytest_result }}"
