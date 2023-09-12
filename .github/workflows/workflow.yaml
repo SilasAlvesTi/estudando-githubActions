@@ -28,16 +28,9 @@ jobs:
           pytest test_code.py
           pytest test_code2.py
           pytest_result=$(pytest -q --tb=no --junitxml=results.xml test_code.py)
-
-          artifact = {
-            "percentage": 100
-          }
-
-          with open("artifact.json", "w") as f:
-            json.dump(artifact, f)
+          echo "::set-output name=pytest_result::$pytest_result"
 
       - name: Mostrar resultados dos testes
-        uses: actions/upload-artifact@v3 
-        with: 
-          name: artifact
-          path: artifact.json
+        run: |
+          echo "Resultados dos testes:"
+          echo "${{ steps.testes.outputs.pytest_result }}"
