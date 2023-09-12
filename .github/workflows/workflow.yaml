@@ -27,10 +27,9 @@ jobs:
         run: |
           pytest test_code.py
           pytest test_code2.py
-          pytest_result=$(pytest -q --tb=no --junitxml=results.xml test_code.py)
 
           artifact = {
-            "percentage": pytest_result
+            "percentage": $(pytest -q --tb=no --junitxml=results.xml test_code.py)
           }
 
           with open("artifact.json", "w") as f:
