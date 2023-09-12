@@ -25,7 +25,7 @@ jobs:
       - name: Rodar testes com pytest
         id: testes
         run: |
-          pytest -q --tb=no --junitxml=results.xml test_code.py
+          pytest test_code.py
           pytest_result=$(pytest -q --tb=no --junitxml=results.xml test_code.py)
           echo "::set-output name=pytest_result::$pytest_result"
 
