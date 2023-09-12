@@ -26,6 +26,7 @@ jobs:
         id: testes
         run: |
           pytest test_code.py
+          pytest test_code2.py
           pytest_result=$(pytest -q --tb=no --junitxml=results.xml test_code.py)
           echo "::set-output name=pytest_result::$pytest_result"
 
