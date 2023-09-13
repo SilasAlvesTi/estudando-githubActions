@@ -34,3 +34,12 @@ jobs:
         run: |
           echo "Resultados dos testes:"
           echo "${{ steps.testes.outputs.pytest_result }}"
+
+      - run: mkdir -p path/to/artifact
+
+      - run: echo hello > world.txt
+      
+      - uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: world.txt
