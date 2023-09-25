@@ -15,7 +15,7 @@ def test_addition1():
 
 
 def test_addition2():
-    input_data = "3 5/n"
+    input_data = "3 3/n"
 
     result = subprocess.run(
         "./main",
