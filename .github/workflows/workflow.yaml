@@ -26,12 +26,9 @@ jobs:
       - name: Rodar testes com pytest
         id: testes
         run: |
-          pytest --cov .
-          coverage report
-          coverage html
-      
+          pytest --junitxml=results.xml . 
     
       - uses: actions/upload-artifact@v3
         with:
           name: code-covarage-report
-          path: htmlcov/index.html
+          path: results.xml
