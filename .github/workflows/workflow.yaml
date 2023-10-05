@@ -33,3 +33,9 @@ jobs:
         with:
           name: code-covarage-report
           path: results.xml
+
+      - name: Enviar resultados para o repositório
+        run: |
+          git add resuls.xml
+          git commit -m "Adicionando/atualizando resultados"
+          git push
