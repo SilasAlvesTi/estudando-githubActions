@@ -36,6 +36,6 @@ jobs:
 
       - name: Enviar resultados para o repositório
         run: |
-          git add resuls.xml
+          git add results.xml
           git commit -m "Adicionando/atualizando resultados"
           git push
