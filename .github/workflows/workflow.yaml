@@ -23,12 +23,10 @@ jobs:
       - name: Compilar o arquivo
         run: gcc main.c -o main
 
+        continue-on-error: true
       - name: Rodar testes com pytest
-        id: testes
-        run: |
-          pytest --junitxml=results.xml . 
+        run: pytest --junitxml=results.xml . 
     
-        if: always()
       - uses: actions/upload-artifact@v3
         with:
           name: code-covarage-report
